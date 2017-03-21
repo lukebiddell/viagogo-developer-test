@@ -58,19 +58,10 @@ public class Main {
 		Set<Event> nearestEvents = world.getNearestEvents(c, 3);
 
 		System.out.println("Closest Events to " + c + ":");
+		
 		for (Event e : nearestEvents) {
 			System.out.println("Event " + e.getFormattedID() + " - " + e.getCheapestTicket().getFormattedPrice() + ", Distance " + e.distanceTo(c));
 		}
-
-		/*
-		 * for (Event e : world.events) { System.out.println("Event " +
-		 * e.getFormattedID() + " - " +
-		 * e.getCheapestTicket().getFormattedPrice() + ", Distance " +
-		 * e.distanceTo(c)); System.out.println(e.getCoords());
-		 * 
-		 * }
-		 */
-		System.out.println(world.events.size());
 	}
 
 }
