@@ -22,11 +22,13 @@ public class Coordinates {
 		return y;
 	}
 
+	@Override
 	public String toString() {
 		return "(" + x + "," + y + ")";
 	}
 
 	
+	@Override
 	public int hashCode() {
 		//Cantor pairing function
 		//https://en.wikipedia.org/wiki/Pairing_function#Cantor_pairing_function

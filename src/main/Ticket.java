@@ -16,11 +16,12 @@ public class Ticket implements Comparable<Ticket> {
 			this.price = price;
 		}
 	}
-
+	
 	public BigDecimal getPrice() {
 		return price;
 	}
 
+	@Override
 	public String toString() {
 		return price.setScale(2, RoundingMode.HALF_EVEN).toString();
 	}

@@ -1,23 +1,16 @@
 package main;
 
-import java.math.BigDecimal;
 import java.util.TreeSet;
 
 public class Event {
 
 	private static int nextID = 1;
-	private final int id;
+	private final int id = nextID++;
 	private final Coordinates coords;
-	private TreeSet<Ticket> tickets;
+	private TreeSet<Ticket> tickets = new TreeSet<Ticket>();
 
 	public Event(int x, int y) {
-		id = nextID++;
-		coords = new Coordinates(x, y);
-		tickets = new TreeSet<Ticket>();
-
-		tickets.add(new Ticket(new BigDecimal(500.36)));
-		tickets.add(new Ticket(new BigDecimal(100.3677)));
-		tickets.add(new Ticket(new BigDecimal(1000.3)));
+		coords = new Coordinates(x, y);		
 	}
 
 	public Ticket getCheapestTicket() {
@@ -47,5 +40,18 @@ public class Event {
 	public void addTicket(Ticket t) {
 		tickets.add(t);
 	}
+	
+	public boolean hasTicket() {
+		return (tickets.size() != 0);
+	}
 
+	/*@Override
+	public boolean equals(Object o) {
+		if (o instanceof Event) {
+			Event e = (Event) o;
+			return (getCoords() == e.getCoords());
+		} else {
+			return false;
+		}
+	}*/
 }
