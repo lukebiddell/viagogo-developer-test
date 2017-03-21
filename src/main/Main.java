@@ -62,6 +62,8 @@ public class Main {
 		for (Event e : nearestEvents) {
 			System.out.println("Event " + e.getFormattedID() + " - " + e.getCheapestTicket().getFormattedPrice() + ", Distance " + e.distanceTo(c));
 		}
+		
+		System.out.print(Integer.compare(10, 5));
 	}
 
 }

@@ -4,7 +4,7 @@ public class Coordinates {
 
 	private final int x;
 	private final int y;
-
+	
 	public Coordinates(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -26,6 +26,7 @@ public class Coordinates {
 		return "(" + x + "," + y + ")";
 	}
 
+	
 	public int hashCode() {
 		//Cantor pairing function
 		//https://en.wikipedia.org/wiki/Pairing_function#Cantor_pairing_function

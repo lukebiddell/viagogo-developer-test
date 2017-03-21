@@ -1,6 +1,5 @@
 package main;
 
-import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,20 +20,29 @@ public class World {
 	}
 
 	public Set<Event> getNearestEvents(Coordinates coords, int noEvents) {
-		TreeSet<Event> nearestEvents = new TreeSet<Event>(new Comparator<Event>() {
+		Comparator<Event> eventComparator = new Comparator<Event>() {
 			public int compare(Event e1, Event e2) {
+
+				// compare distance to coords
 				int comparison = Integer.compare(e1.distanceTo(coords), e2.distanceTo(coords));
-				if (comparison == 0){
+
+				// if equal distances
+				if (comparison == 0) {
+
+					// compare ticket price
 					comparison = e1.getCheapestTicket().getPrice().compareTo(e2.getCheapestTicket().getPrice());
-					
-					if (comparison == 0){
+
+					// if still equal, consider e1 > e2
+					if (comparison == 0) {
 						comparison = 1;
 					}
 				}
-				
+
 				return comparison;
 			}
-		});
+		};
+
+		TreeSet<Event> nearestEvents = new TreeSet<Event>(eventComparator);
 
 		for (Event event : events) {
 			if (nearestEvents.size() < noEvents) {
@@ -47,4 +55,5 @@ public class World {
 
 		return nearestEvents;
 	}
+	
 }
