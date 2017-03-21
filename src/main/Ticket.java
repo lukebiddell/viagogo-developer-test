@@ -2,17 +2,19 @@ package main;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 public class Ticket implements Comparable<Ticket> {
 
 	private BigDecimal price; // non-zero
-
+	private static DecimalFormat decimalFormatter = new DecimalFormat("00.00");
+	
 	public Ticket(BigDecimal price) {
-		if (price == null || price.doubleValue() <= 0){
+		if (price.doubleValue() <= 0) {
 			throw new IllegalArgumentException("Price must be positive and non-zero: " + price);
+		} else {
+			this.price = price;
 		}
-		
-		this.price = price;
 	}
 
 	public BigDecimal getPrice() {
@@ -26,6 +28,10 @@ public class Ticket implements Comparable<Ticket> {
 	@Override
 	public int compareTo(Ticket t) {
 		return price.compareTo(t.getPrice());
+	}
+
+	public String getFormattedPrice() {
+		return ("$" + decimalFormatter.format(Double.parseDouble(toString())));
 	}
 
 }
