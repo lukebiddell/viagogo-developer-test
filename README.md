@@ -2,13 +2,15 @@
 A Java program which accepts a user location as a pair of co-ordinates, and returns a list of the five closest events, along with the cheapest ticket price for each event.
 
 ## Building
-Run the following command from the folder `/src/`.
+This program requires Java 1.8 to build and run.
+
+To build, run the following command from the folder `/src/`.
 ```
 javac main/*.java
 ```
 
 ## Running
-Run the following command from the folder `/src/`.
+To run, run the following command from the folder `/src/`.
 ```
 java main.Main
 ```
